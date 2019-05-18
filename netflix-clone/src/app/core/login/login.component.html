@@ -4,30 +4,27 @@
 
   <div class="card text-center col-4">
     <div class="card-header">
-      Login
+      <h4>Netflix-Clone</h4>
     </div>
     <div class="card-body">
-      <form [formGroup]="loginForm" class="form mt-4">
+      <form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
 
         <div class="form-group">
-          <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
-          <small *ngIf="loginForm.get('userName').errors?.required" class="text-danger d-block mt-2">
-            Digite um email !
-          </small>
-          <small *ngIf="loginForm.get('userName').errors?.email" class="text-danger d-block mt-2">
-              Digite um email válido!
-            </small>
+          <input #userNameInput formControlName="userName" class="form-control" placeholder="user name" autofocus>
+          <app-vmessage *ngIf="loginForm.get('userName').errors?.required" text="Digite um email!">
+          </app-vmessage>
+          <app-vmessage *ngIf="loginForm.get('userName').errors?.email" text="Digite um email válido!">
+          </app-vmessage>
 
         </div>
 
         <div class="form-group">
           <input formControlName="password" type="password" class="form-control" placeholder="password">
-          <small *ngIf="loginForm.get('password').errors?.required" class="text-danger d-block mt-2">
-            Digite uma senha !
-          </small>
+          <app-vmessage *ngIf="loginForm.get('password').errors?.required" text="Digite uma senha!">
+          </app-vmessage>
         </div>
 
-        <button [disabled]="loginForm.invalid" type="submit" class="btn">login</button>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-block">login</button>
 
       </form>
     </div>

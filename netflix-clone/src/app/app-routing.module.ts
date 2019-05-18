@@ -6,7 +6,7 @@ import { MoviesResolver } from './core/home/movie-list/movies/movies.resolve';
 import { LoginComponent } from './core/login/login.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: HomeComponent },
   { path: '', component: LoginComponent },
   {
     path: 'movies/:id', component: MoviesComponent, resolve: {

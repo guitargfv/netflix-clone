@@ -9,6 +9,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VmessageModule } from 'src/app/shared/vmessage/vmessage.module';
+import { RouterModule } from '@angular/router';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -31,7 +33,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    VmessageModule,
+    RouterModule
 
   ],
   exports: [
