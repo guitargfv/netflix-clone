@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="card" class="col-3">
+    <img class="card-img-top" [src]="imageUrl+movie?.poster_path" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+      <p class="card-text">
+        Data de Lançamento: {{movie.release_date | date:'dd/MM/yy' }}
+      </p>
+      <p class="card-text">
+        Popularidade: {{movie.popularity}}
+      </p>
+      <p class="card-text">
+        Nota: {{movie.vote_average}} / Contagem de votos: {{movie.vote_count}}
+      </p>
+
+    </div>
+  </div>
+  <div class="col-9">
+    <h3>Sinopse</h3>
+    <p>{{movie.overview}}</p>
+    <a href="#" class="btn">Adicionar aos Favoritos</a>
+  </div>
+</div>

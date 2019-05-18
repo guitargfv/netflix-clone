@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { Router } from '@angular/router';
+import { Movie } from 'src/app/shared/models/movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -13,7 +15,7 @@ export class MovieListComponent implements OnInit {
   @Input() url: string;
   @Input() category: string;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private router: Router) { }
 
   ngOnInit() {
     this.getMovies();
@@ -27,8 +29,8 @@ export class MovieListComponent implements OnInit {
       });
   }
 
-  printMovie(movie: string) {
-    console.log('Filme', movie);
+  printMovie(movie: Movie) {
+    this.router.navigate(['movies', movie.id]);
   }
 
 }
