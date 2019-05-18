@@ -1,3 +1,5 @@
+<app-favorite-movies *ngIf="favoriteMovies.length" [favoriteMovies]="favoriteMovies" category="Favoritos">
+</app-favorite-movies>
 <app-movie-list [url]="urlPopularMovies" category="Filmes Populares"></app-movie-list>
 <app-movie-list [url]="urlTopRated" category="Melhores Avaliados"></app-movie-list>
 <app-movie-list [url]="urlUpcoming" category="Próximos Lançamentos"></app-movie-list>

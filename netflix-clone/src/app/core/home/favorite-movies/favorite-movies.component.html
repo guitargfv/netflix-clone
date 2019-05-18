@@ -1,0 +1,8 @@
+<div>
+  <h3>Favoritos</h3>
+  <ul class="list-group list-group-horizontal">
+    <li *ngFor="let movie of movies" class="list-group-item">
+      <img [src]="imageUrl+movie.poster_path" (click)="printMovie(movie)" />
+    </li>
+  </ul>
+</div>

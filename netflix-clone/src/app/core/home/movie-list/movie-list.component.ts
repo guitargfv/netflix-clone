@@ -10,7 +10,7 @@ import { Movie } from 'src/app/shared/models/movie';
 })
 export class MovieListComponent implements OnInit {
 
-  movies = [];
+  @Input() movies = [];
   imageUrl = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
   @Input() url: string;
   @Input() category: string;
