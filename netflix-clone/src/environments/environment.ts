@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.themoviedb.org/3/movie/'
+  apiUrl: 'https://api.themoviedb.org/3/movie/',
+  firebaseConfig: {
+    apiKey: "AIzaSyDRGvCkFyJFtxWOUycqfA5goj0KDZlQVLo",
+    authDomain: "avaliacaosantander.firebaseapp.com",
+    databaseURL: "https://avaliacaosantander.firebaseio.com",
+    projectId: "avaliacaosantander",
+    storageBucket: "avaliacaosantander.appspot.com",
+    messagingSenderId: "118141395135",
+    appId: "1:118141395135:web:b9338848452fa246"
+  }
 };
 
 /*
