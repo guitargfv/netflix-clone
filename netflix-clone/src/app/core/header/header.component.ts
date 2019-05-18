@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenService } from '../services/token.service';
+import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +11,19 @@ import { TokenService } from '../services/token.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogged = false;
+  user$: Observable<User>;
 
-  constructor(private tokenService: TokenService) { }
+  constructor(private userService: UserService, private router: Router) {
+    this.user$ = userService.getUser();
+  }
 
   ngOnInit() {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    }
+
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['']);
   }
 
 }

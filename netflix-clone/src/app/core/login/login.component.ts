@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TokenService } from '../services/token.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>;
 
   constructor(public afAuth: AngularFireAuth, private formBuilder: FormBuilder,
-    private router: Router, private tokenService: TokenService) { }
+    private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     this.afAuth.auth.signInWithEmailAndPassword(userName, password)
       .then(value => {
-        value.user.getIdToken().then(token => this.tokenService.setToken(token));
+        value.user.getIdToken().then(token => this.userService.setToken(token));
         this.router.navigate(['home', value.user.uid]);
 
       })

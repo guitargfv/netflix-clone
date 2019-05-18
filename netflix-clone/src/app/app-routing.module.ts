@@ -4,10 +4,11 @@ import { HomeComponent } from './core/home/home.component';
 import { MoviesComponent } from './core/home/movie-list/movies/movies.component';
 import { MoviesResolver } from './core/home/movie-list/movies/movies.resolve';
 import { LoginComponent } from './core/login/login.component';
+import { AuthGuard } from './core/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'home/:id', component: HomeComponent },
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent, canActivate: [AuthGuard] },
   {
     path: 'movies/:id', component: MoviesComponent, resolve: {
       movie: MoviesResolver
