@@ -7,7 +7,7 @@ import { LoginComponent } from './core/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   {
     path: 'movies/:id', component: MoviesComponent, resolve: {
       movie: MoviesResolver

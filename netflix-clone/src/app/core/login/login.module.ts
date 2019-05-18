@@ -8,6 +8,7 @@ import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -29,7 +30,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    ReactiveFormsModule
 
   ],
   exports: [

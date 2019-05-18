@@ -7,19 +7,27 @@
       Login
     </div>
     <div class="card-body">
-      <form class="form mt-4">
+      <form [formGroup]="loginForm" class="form mt-4">
 
         <div class="form-group">
-          <input class="form-control" placeholder="user name" autofocus>
+          <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
+          <small *ngIf="loginForm.get('userName').errors?.required" class="text-danger d-block mt-2">
+            Digite um email !
+          </small>
+          <small *ngIf="loginForm.get('userName').errors?.email" class="text-danger d-block mt-2">
+              Digite um email válido!
+            </small>
+
         </div>
 
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="password">
+          <input formControlName="password" type="password" class="form-control" placeholder="password">
+          <small *ngIf="loginForm.get('password').errors?.required" class="text-danger d-block mt-2">
+            Digite uma senha !
+          </small>
         </div>
 
-        <button type="submit" class="btn btn-block">
-          login
-        </button>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn">login</button>
 
       </form>
     </div>
