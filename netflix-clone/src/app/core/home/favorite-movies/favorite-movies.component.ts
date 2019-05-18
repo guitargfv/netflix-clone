@@ -22,11 +22,9 @@ export class FavoriteMoviesComponent implements OnInit {
   }
 
   setMovies(movie) {
-    console.log(movie.movieId);
     this.moviesService.getMoviesById(movie.movieId)
       .subscribe(value => {
         this.movies.push(value);
-        console.log(value);
       });
   }
   printMovie(movie: Movie) {

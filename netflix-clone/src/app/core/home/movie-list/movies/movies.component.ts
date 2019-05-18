@@ -24,12 +24,10 @@ export class MoviesComponent implements OnInit {
   }
   addBookmarks() {
     //TODO adicionar aos favoritos
-    this.db.collection('favorite-movies').valueChanges().subscribe(value => console.log('Buscando no firebase', value));
     this.db.collection('favorite-movies').add({
       userId: this.userService.getUserId(),
       movieId: this.movie.id
     });
-    console.log('Filmes', this.movie);
     this.router.navigate(['home', this.userService.getUserId()]);
   }
 

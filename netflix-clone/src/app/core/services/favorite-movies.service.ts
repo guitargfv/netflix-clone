@@ -15,4 +15,6 @@ export class FavoriteMoviesService {
       ref => ref.where('userId', '==', userId))
       .valueChanges();
   }
+
+
 }
