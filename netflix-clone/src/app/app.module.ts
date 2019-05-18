@@ -19,7 +19,7 @@ import { HeaderModule } from './core/header/header.module';
     CoreModule,
     HttpClientModule,
     ReactiveFormsModule,
-    HeaderModule
+    HeaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
